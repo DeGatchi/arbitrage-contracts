@@ -1,43 +1,12 @@
 # Arbitrage contracts
 
-Utilize flashloans to arbitrage Uniswap v2 AMMs.
+Utilize AAVE flashloans to arbitrage Uniswap v2 AMMs.
 
 ## Build
 
 ```
-yarn
-yarn build
+make build
 ```
-
-## Test
-
-Kovan is used to test the flashloan arbitrage.
-
-First, prepare your `.env` file accordingly. No stablecoin token is
-deployed below, for that you will need to use the
-[AAVE faucet](https://staging.aave.com/#/faucet), otherwise we won't
-be able to execute flashloans if the borrowed asset is not whitelisted
-in AAVE.
-
-Deploy mock contracts:
-```
-yarn deploy-mocks
-```
-
-Update the contracts in `scripts/add-liquidity.ts`, if you want to
-create the liquidity pools automatically, and run the following command:
-```
-yarn add-liquidity
-```
-
-Finally, deploy the flashloan contract:
-```
-yarn deploy kovan scripts/deploy.ts
-```
-
-Now, you can submit a flashloan request with a path that includes an
-arbitrage and it should be successfully executed by the contract. An
-example client of this contract can be found [here](https://github.com/kargakis/arbitragoor).
 
 ## Contracts
 
